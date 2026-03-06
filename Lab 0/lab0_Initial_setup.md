@@ -7,6 +7,7 @@ These are the resources that we will need today:
 |------|------|----|----|----|----|
 | DC1 | Domain Controller | Windows Server 2022 Datacenter Core | 10.0.0.31 | 2 | 2GB |
 | Client1 | Workstation | Windows 10 Pro | DHCP | 1 | 2GB |
+
 Plus a virtual internal network switch **vSwitch** for the network 10.0.0.x/24
 
 ### Plan for today:
@@ -261,6 +262,7 @@ Configure a simple file server, set **NTFS** permissions for **Security Group** 
 
 ## After that:
 Powershell automation and scripting for common administrative tasks: User creation and group placement. and resource usage mointoring and alerts.
+
 
 
 
