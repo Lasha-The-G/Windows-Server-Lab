@@ -38,6 +38,7 @@ Also DC1 will function as a DNS server so we set it's ip as prefered DNS.
 >IPv6 is left enabled even though our lab primarily uses IPv4, because Active Directory services internally depend on IPv6.
 
 To configure all of the above we can run the fallowing powershell script:
+[DC1_network_configuration.ps1](https://github.com/Lasha-The-G/Windows-Server-Lab/blob/main/Lab%200/scripts/DC1_network_configuration.ps1)
 
 	$interface_name = "Ethernet"
 	$ethernet_index = (Get-NetAdapter -Name $interface_name).ifIndex;
@@ -94,6 +95,7 @@ We want both so we input A:
 
 
 Or we can run this simple script for all of the above:
+[DC1_AD_setup.ps1](https://github.com/Lasha-The-G/Windows-Server-Lab/blob/main/Lab%200/scripts/DC1_AD_setup.ps1)
 	
 	try{
 	    Install-WindowsFeature AD-Domain-Services -IncludeManagementTools 
@@ -153,6 +155,7 @@ And now to see that **DHCP** is working we can run:
 	Get-DhcpServerv4OptionValue -ScopeId 10.0.0.0 
 
 Or run a simple script to do everything:
+[DC1_DHCP_setup.ps1](https://github.com/Lasha-The-G/Windows-Server-Lab/blob/main/Lab%200/scripts/DC1_DHCP_setup.ps1)
 
 	try{
 	    Install-WindowsFeature DHCP -IncludeManagementTools -ErrorAction Stop
@@ -245,8 +248,10 @@ And provide credentials of Bob Ross.
 
 Now, after the client restarts, we can see that DHCP has correctly configured this computer
 <Image of network configuration>
-And The default wallpaper was applied.
+![client-dhcp-config](https://github.com/Lasha-The-G/Windows-Server-Lab/blob/main/Lab%200/screenshots/client-dhcp-configuration.png)
+And The default wallpaper was applied. Yes, it's a black image.
 <image of the wallpaper>
+![gpo_default-wallpaper](https://github.com/Lasha-The-G/Windows-Server-Lab/blob/main/Lab%200/screenshots/gpo_default_wallpaper.png)
 
 
 ### This concludes the first part of my Windows Server Lab.
@@ -256,6 +261,7 @@ Configure a simple file server, set **NTFS** permissions for **Security Group** 
 
 ## After that:
 Powershell automation and scripting for common administrative tasks: User creation and group placement. and resource usage mointoring and alerts.
+
 
 
 
